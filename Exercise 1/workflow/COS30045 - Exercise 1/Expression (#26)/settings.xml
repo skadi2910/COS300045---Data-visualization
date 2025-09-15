@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack"/>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="script" type="xstring" value="# Write a row-wise expression, e.g.%%00010#   if($[&quot;sales&quot;] &gt; 1000, &quot;High&quot;, &quot;Low&quot;)%%00010# See node description for full syntax%%00010#($[&quot;screensize_inch&quot;] &lt; 17, &quot;16&quot;,%%00010#$[&quot;screensize_inch&quot;] &lt;= 19,&quot;19&quot;,%%00010if($[&quot;screensize_inch&quot;] &lt;= 22, &quot;&lt;24&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 24, &quot;24&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 27, &quot;27&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 32, &quot;32&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 40, &quot;40&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 43, &quot;43&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 48, &quot;48&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 49, &quot;49&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 50, &quot;50&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 55, &quot;55&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 58, &quot;58&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 60, &quot;60&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 65, &quot;65&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 70, &quot;70&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 75, &quot;75&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 77, &quot;77&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 82, &quot;82&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 83, &quot;83&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 85, &quot;85&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 86, &quot;86&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 88, &quot;88&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 98, &quot;98&quot;,%%00010$[&quot;screensize_inch&quot;] &lt;= 100, &quot;100&quot;, %%00010$[&quot;screensize_inch&quot;] &lt;= 115, &quot;115&quot;,&quot;116&quot;)"/>
+        <entry key="columnOutputMode" type="xstring" value="APPEND"/>
+        <entry key="createdColumn" type="xstring" value="screensize_category"/>
+        <entry key="replacedColumn" type="xstring" value=""/>
+        <entry key="languageVersion" type="xint" value="1"/>
+        <entry key="builtinFunctionsVersion" type="xint" value="1"/>
+        <entry key="builtinAggregationsVersion" type="xint" value="1"/>
+        <config key="additionalExpressions"/>
+    </config>
+    <config key="variables"/>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.expressions.node.row.mapper.ExpressionRowMapperNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Expression"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Base Expressions"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base.expressions"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.5.1.v202507241234"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME Expressions"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.expressions.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.5.1.v202507241234"/>
+    <config key="factory_settings"/>
+    <entry key="name" type="xstring" value="Expression"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports">
+        <config key="port_1">
+            <entry key="index" type="xint" value="1"/>
+            <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+            <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+            <entry key="port_object_summary" type="xstring" value="Rows: 2805, Cols: 26"/>
+            <entry key="port_dir_location" type="xstring" value="port_1"/>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="25cb9f9a-76e8-4e0c-9998-578a1367be62"/>
+    </config>
+</config>
