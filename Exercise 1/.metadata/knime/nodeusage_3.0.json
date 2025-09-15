@@ -72,11 +72,11 @@
             {
                 "id": "org.knime.base.views.node.barchart.BarChartNodeFactory",
                 "nodename": "Bar Chart",
-                "nrexecs": 21,
+                "nrexecs": 23,
                 "nrfails": 0,
-                "exectime": 255,
+                "exectime": 289,
                 "nrcreated": 1,
-                "nrsettingsChanged": 24,
+                "nrsettingsChanged": 26,
                 "successor": "n/a",
                 "successornodename": "n/a"
             },
@@ -94,11 +94,11 @@
             {
                 "id": "org.knime.base.expressions.node.row.mapper.ExpressionRowMapperNodeFactory",
                 "nodename": "Expression",
-                "nrexecs": 19,
+                "nrexecs": 24,
                 "nrfails": 0,
-                "exectime": 2620,
+                "exectime": 2856,
                 "nrcreated": 2,
-                "nrsettingsChanged": 20,
+                "nrsettingsChanged": 28,
                 "successor": "org.knime.base.node.preproc.colconvert.stringtonumber2.StringToNumber2NodeFactory",
                 "successornodename": "String to Number"
             },
@@ -232,8 +232,8 @@
             "WEB_UI": 22
         }
     },
-    "uptime": 24044482,
-    "workflowsOpened": 4,
+    "uptime": 23251728,
+    "workflowsOpened": 5,
     "remoteWorkflowsOpened": 0,
     "workflowsCreated": 1,
     "remoteWorkflowsCreated": 0,
@@ -243,9 +243,9 @@
     "webUIPerspectiveSwitches": 0,
     "javaUIPerspectiveSwitches": 0,
     "lastUsedPerspective": "none",
-    "launches": 2,
+    "launches": 3,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 466719,
+    "timeSinceLastStart": 21666220,
     "crashes": 0,
-    "properlyShutDown": true
+    "properlyShutDown": false
 }
