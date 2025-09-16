@@ -1,0 +1,22 @@
+{
+  "version" : "5.5.1.v202507241444",
+  "projects" : [ {
+    "name" : "COS30045 - Exercise 1",
+    "active" : true,
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "relativePath" : "workflow/COS30045 - Exercise 1"
+    }
+  } ],
+  "mostRecentlyUsedProjects" : [ {
+    "name" : "COS30045 - Exercise 1",
+    "timeUsed" : "2025-09-14T22:55:02.328958+07:00",
+    "origin" : {
+      "providerId" : "local",
+      "spaceId" : "local",
+      "projectType" : "WORKFLOW",
+      "relativePath" : "workflow/COS30045 - Exercise 1"
+    }
+  } ]
+}
