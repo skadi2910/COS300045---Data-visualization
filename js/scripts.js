@@ -36,6 +36,7 @@ function showPage(pageId) {
     const titles = {
         'home': 'PowerTech - Home',
         'televisions': 'PowerTech - Televisions',
+        'data-insights': 'Data Insights',
         'about': 'PowerTech - About Us'
     };
     document.title = titles[pageId];
