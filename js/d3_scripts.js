@@ -31,7 +31,12 @@ const svg = d3
 //   .attr("height", 16)
 //   .attr("fill", "blue");
 // 4.4.1 Use row conversion function, d3.csv(), to give D3 access to data
-d3.csv("./data/tv_2025_brands.csv", (d) => {
+const basePath = window.location.hostname === 'localhost' 
+  ? '.' 
+  : '/COS300045---Data-visualization';
+console.log('Hostname:', window.location.hostname);
+console.log('Full URL:', window.location.href);
+d3.csv(`./data/tv_2025_brands.csv`, (d) => {
   // console.log(d);
   return {
     brand: d.Brand_Reg,
