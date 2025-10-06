@@ -6,7 +6,7 @@ function showPage(pageId) {
     
     // Hide all pages
     const pages = document.querySelectorAll('.page');
-    // console.log('Found pages:', pages.length);
+    console.log('Found pages:', pages.length);
     pages.forEach(page => {
         page.classList.remove('active');
     });
@@ -20,7 +20,7 @@ function showPage(pageId) {
     
     // Show selected page
     const targetPage = document.getElementById(pageId);
-    // console.log('Target page element:', targetPage);
+    console.log('Target page element:', targetPage);
     if (targetPage) {
         targetPage.classList.add('active');
     }
@@ -37,6 +37,9 @@ function showPage(pageId) {
         'home': 'PowerTech - Home',
         'televisions': 'PowerTech - Televisions',
         'data-insights': 'Data Insights',
+        'svg-practice-1': 'PowerTech - SVG Practice 1',
+        'svg-practice-2': 'PowerTech - SVG Practice 2',
+        'd3-practice': 'PowerTech - D3 Practice',
         'about': 'PowerTech - About Us'
     };
     document.title = titles[pageId];
@@ -67,10 +70,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     document.getElementById('nav-data-insights').addEventListener('click', function(e) {
         e.preventDefault();
-        // console.log('About link clicked');
+        console.log('Data Insight link clicked');
         showPage('data-insights');
     });
-        
+    document.getElementById('nav-svg-practice-1').addEventListener('click', function(e) {
+        e.preventDefault();
+        // console.log('SVG Practice link clicked');
+        showPage('svg-practice-1');
+    });
+    document.getElementById('nav-svg-practice-2').addEventListener('click', function(e) {
+        e.preventDefault();
+        // console.log('SVG Practice link clicked');
+        showPage('svg-practice-2');
+    });
+    document.getElementById('nav-d3-practice').addEventListener('click', function(e) {
+        e.preventDefault();
+        // console.log('D3 Practice link clicked');
+        showPage('d3-practice');
+    });
     document.getElementById('nav-about').addEventListener('click', function(e) {
         e.preventDefault();
         // console.log('About link clicked');

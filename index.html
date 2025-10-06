@@ -29,6 +29,18 @@
             >
           </li>
           <li>
+            <a href="javascript:void(0)" id="nav-svg-practice-1"
+              >SVG Practice 1</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0)" id="nav-svg-practice-2"
+              >SVG Practice 2</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0)" id="nav-d3-practice">D3 Practice</a>
+          <li>
             <a href="javascript:void(0)" id="nav-about">About Us</a>
           </li>
         </ul>
@@ -487,22 +499,25 @@
                           (56-70"), X-Large (≥70")
                         </p>
                       </div>
-                      <br/>
+                      <br />
                       <div>
-                        <p>📊 Bar Chart: Top 8 Brands Average energy consumptions per inch</p>
-                        <img src="./images/s10.svg"/ alt="TTop 8 Brands Average energy consumptions per inch">
-                          <p class="placeholder-detail">
+                        <p>
+                          📊 Bar Chart: Top 8 Brands Average energy consumptions
+                          per inch
+                        </p>
+                        <img src="./images/s10.svg"/ alt="TTop 8 Brands Average
+                        energy consumptions per inch">
+                        <p class="placeholder-detail">
                           Show top 8 brands (by model count)
                         </p>
-                                              </div>
-                        <p class="chart-caption">
-                          <strong>What to look for:</strong> Compare the bars
-                          within each size category. Lower bars indicate brands
-                          with better average efficiency in that size range.
-                          Focus on brands that consistently show lower power
-                          consumption across multiple size categories.
-                        </p>
-
+                      </div>
+                      <p class="chart-caption">
+                        <strong>What to look for:</strong> Compare the bars
+                        within each size category. Lower bars indicate brands
+                        with better average efficiency in that size range. Focus
+                        on brands that consistently show lower power consumption
+                        across multiple size categories.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1184,6 +1199,106 @@
           Productivity Plan.
         </p>
       </div>
+      <div id="svg-practice-1" class="page">
+        <h1>SVG Practice Page 1</h1>
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky -->
+          <rect width="800" height="600" fill="#87CEEB" />
+
+          <!-- Sun -->
+          <circle cx="650" cy="150" r="60" fill="#FFFF00" />
+
+          <!-- Ground -->
+          <rect x="0" y="400" width="800" height="200" fill="#228B22" />
+
+          <!-- Winding Path -->
+          <path
+            d="M 200 600 Q 250 500, 300 450 Q 350 400, 400 420 Q 450 440, 500 400"
+            stroke="#FFA500"
+            stroke-width="25"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <path
+            d="M 200 600 Q 250 500, 300 450 Q 350 400, 400 420 Q 450 440, 500 400"
+            stroke="#FF8C00"
+            stroke-width="20"
+            fill="none"
+            stroke-linecap="round"
+            transform="translate(10, 5)"
+          />
+
+          <!-- Tree Trunk -->
+          <rect x="120" y="350" width="40" height="100" fill="#8B4513" />
+
+          <!-- Tree Foliage -->
+          <circle cx="120" cy="350" r="45" fill="#228B22" />
+          <circle cx="160" cy="340" r="45" fill="#2E8B57" />
+          <circle cx="140" cy="320" r="40" fill="#006400" />
+
+          <!-- House Base -->
+          <rect x="300" y="280" width="250" height="200" fill="#8B4513" />
+          <!-- Chimney -->
+          <rect x="520" y="200" width="30" height="80" fill="#8B4513" />
+          <!-- Roof -->
+          <polygon points="425,150 300,280 550,280" fill="#CD853F" />
+          <!-- Windows -->
+          <!-- Left Window -->
+          <g transform="translate(0,0)">
+            <circle cx="350" cy="340" r="30" fill="#B0E0E6" />
+            <line
+              x1="350"
+              y1="310"
+              x2="350"
+              y2="370"
+              stroke="#000000"
+              stroke-width="2"
+            />
+            <line
+              x1="320"
+              y1="340"
+              x2="380"
+              y2="340"
+              stroke="#000000"
+              stroke-width="2"
+            />
+            <!-- Right Window -->
+            <circle cx="500" cy="340" r="30" fill="#B0E0E6" />
+            <line
+              x1="500"
+              y1="310"
+              x2="500"
+              y2="370"
+              stroke="#000000"
+              stroke-width="2"
+            />
+            <line
+              x1="470"
+              y1="340"
+              x2="530"
+              y2="340"
+              stroke="#000000"
+              stroke-width="2"
+            />
+            <!-- <rect x="330" y="310" width="60" height="60" fill="#B0E0E6" /> -->
+            <!-- <rect x="460" y="310" width="60" height="60" fill="#B0E0E6" /> -->
+          </g>
+          <!-- Door -->
+          <rect x="380" y="380" width="40" height="100" fill="#CD853F" />
+          <rect x="430" y="380" width="40" height="100" fill="#CD853F" />
+          <!-- <circle cx="440" cy="430" r="5" fill="#000000" /> -->
+        </svg>
+      </div>
+      <div id="svg-practice-2" class="page">
+        <h1>SVG Practice Page 2</h1>
+        <div>
+          <svg></svg>
+        </div>
+      </div>
+      <div id="d3-practice" class="page">
+        <h1>D3 Practice Page</h1>
+        <div class="responsive-svg-container">
+        </div>
     </main>
 
     <footer>
@@ -1197,7 +1312,8 @@
         not reflect actual product specifications.
       </p>
     </footer>
-
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module" src="./js/scripts.js"></script>
+    <script type="module" src="./js/d3_scripts.js"></script>
   </body>
 </html>

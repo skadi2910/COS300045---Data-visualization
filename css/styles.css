@@ -1153,7 +1153,12 @@ footer p {
     margin-top: 0;
     font-size: var(--font-size-base);
 }
-
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
 @media (max-width: 768px) {
   header {
     flex-direction: column;
