@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Power Consumption Dashboard</title>
+    <link rel="stylesheet" href="./css/multi-chart-dashboard-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-grid">
+                <div class="header-cell header-title">
+                    TV POWER<br>CONSUMPTION
+                    <div class="header-subtitle">A data visualization dashboard</div>
+                </div>
+                <div class="header-cell">
+                    <div class="header-label">Version</div>
+                    <div class="header-value">v0.1.5</div>
+                </div>
+                <div class="header-cell">
+                    <div class="header-label">Updated</div>
+                    <div class="header-value">2025-10-20</div>
+                </div>
+                <div class="header-cell">
+                    <div class="header-label">Author</div>
+                    <div class="header-value">Dashboard</div>
+                </div>
+                <div class="header-cell">
+                    <div class="header-label">License</div>
+                    <div class="header-value">MIT</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="file-section">
+                <button class="btn">[ SELECT FILE ]</button>
+                <span class="file-name">power-data.csv</span>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="section-title">▪ KEY STATISTICS</div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">TOTAL CONSUMPTION</div>
+                <div class="stat-value">2,847 kWh</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">AVERAGE DAILY</div>
+                <div class="stat-value">7.8 kWh</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">PEAK HOUR</div>
+                <div class="stat-value">21:00 hrs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">ACTIVE TVs</div>
+                <div class="stat-value">5 units</div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="section-title">▪ DATA VISUALIZATIONS</div>
+        
+        <div class="chart-grid">
+            <!-- Chart 1: Available Screen Technology -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title-row">
+                        <div class="chart-title">1. Available Screen Technology</div>
+                        <div class="chart-controls-group">
+                            <div class="chart-toolbar" id="toolbar-chart1">
+                                <button class="tool-btn" title="Pin">📌</button>
+                                <button class="tool-btn" title="Info">#</button>
+                                <button class="tool-btn" title="Fullscreen">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sort-controls-chart1"></div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-box color-tv1"></div>
+                            <span>LCD</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box color-tv2"></div>
+                            <span>LCD (LED)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box color-tv3"></div>
+                            <span>OLED</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-content" id="chart1">
+                    <!-- D3.js chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Chart 2: Energy Consumption by Screen Tech -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title-row">
+                        <div class="chart-title">2. Energy Consumption by Screen Tech</div>
+                        <div class="chart-controls-group">
+                            <div class="chart-toolbar" id="toolbar-chart2">
+                                <button class="tool-btn" title="Pin">📌</button>
+                                <button class="tool-btn" title="Info">#</button>
+                                <button class="tool-btn" title="Fullscreen">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sort-controls-chart2"></div>
+                </div>
+                <div class="chart-content" id="chart2">
+                    <!-- D3.js chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Chart 3: Energy Consumption by Screen Size -->
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <div class="chart-title-row">
+                        <div class="chart-title">3. Energy Consumption Distribution & Analysis</div>
+                        <div class="chart-controls-group">
+                            <div class="chart-toolbar" id="toolbar-chart3">
+                                <button class="tool-btn" title="Pin">📌</button>
+                                <button class="tool-btn" title="Info">#</button>
+                                <button class="tool-btn" title="Fullscreen">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="filter-controls-chart3"></div>
+                    <div id="bin-controls-chart3"></div>
+                </div>
+                <div class="chart-content" id="chart3">
+                    <!-- D3.js chart will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Chart 4: Energy Consumption by Brands -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title-row">
+                        <div class="chart-title">4. Energy Consumption by Brands</div>
+                        <div class="chart-controls-group">
+                            <div class="chart-toolbar" id="toolbar-chart4">
+                                <button class="tool-btn" title="Pin">📌</button>
+                                <button class="tool-btn" title="Info">#</button>
+                                <button class="tool-btn" title="Fullscreen">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sort-controls-chart4"></div>
+                </div>
+                <div class="chart-content" id="chart4">
+                    <div class="placeholder">
+                        <div class="placeholder-text">
+                            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                            <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Chart Placeholder</div>
+                            <div style="font-size: 12px; opacity: 0.7;">Energy Consumption by Brands</div>
+                            <div style="font-size: 12px; opacity: 0.5; margin-top: 10px;">Data visualization will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 5: Energy Consumption per Inch by Brands -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title-row">
+                        <div class="chart-title">5. Energy Consumption per Inch by Brands</div>
+                        <div class="chart-controls-group">
+                            <div class="chart-toolbar" id="toolbar-chart5">
+                                <button class="tool-btn" title="Pin">📌</button>
+                                <button class="tool-btn" title="Info">#</button>
+                                <button class="tool-btn" title="Fullscreen">⛶</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sort-controls-chart5"></div>
+                </div>
+                <div class="chart-content" id="chart5">
+                    <div class="placeholder">
+                        <div class="placeholder-text">
+                            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                            <div style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Chart Placeholder</div>
+                            <div style="font-size: 12px; opacity: 0.7;">Energy Consumption per Inch by Brands</div>
+                            <div style="font-size: 12px; opacity: 0.5; margin-top: 10px;">Data visualization will appear here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="./js/multi_chart_dashboard_scripts.js"></script>
+</body>
+</html>

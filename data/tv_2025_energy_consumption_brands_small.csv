@@ -1,0 +1,6 @@
+"Brand_Reg","screensize_group","Unique count(Model_No)","Median(Labelled energy consumption (kWh/year))"
+"KOGAN","Small (<=45 inch)",65,116
+"JVC","Small (<=45 inch)",34,151
+"EKO","Small (<=45 inch)",29,153
+"SAMSUNG","Small (<=45 inch)",49,255
+"LG","Small (<=45 inch)",73,258

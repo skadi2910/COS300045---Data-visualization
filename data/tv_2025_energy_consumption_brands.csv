@@ -1,0 +1,21 @@
+"Brand_Reg","screensize_group","Unique count(Model_No)","Median(Labelled energy consumption (kWh/year))"
+"KOGAN","Small (<=45 inch)",65,116
+"JVC","Small (<=45 inch)",34,151
+"EKO","Small (<=45 inch)",29,153
+"SAMSUNG","Small (<=45 inch)",49,255
+"LG","Small (<=45 inch)",73,258
+"SONY","Medium (46-55 inch)",26,417.5
+"PHILIPS","Medium (46-55 inch)",35,375
+"SAMSUNG","Medium (46-55 inch)",128,341
+"LG","Medium (46-55 inch)",205,331
+"KOGAN","Medium (46-55 inch)",52,330.5
+"KOGAN","Large (56-70 inch)",43,532
+"SAMSUNG","Large (56-70 inch)",96,503
+"PHILIPS","Large (56-70 inch)",27,483
+"HISENSE","Large (56-70 inch)",32,458.5
+"LG","Large (56-70 inch)",141,448
+"TCL","XL (>70 inch)",43,800
+"SONY","XL (>70 inch)",37,789
+"HISENSE","XL (>70 inch)",49,719
+"SAMSUNG","XL (>70 inch)",156,715
+"LG","XL (>70 inch)",225,656

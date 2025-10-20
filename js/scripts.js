@@ -46,7 +46,30 @@ function showPage(pageId) {
     
     // console.log('Page switch completed for:', pageId);
 }
+// Tab button functionality
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const parent = this.closest('.chart-tabs');
+        parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        // Trigger D3.js chart update here
+        console.log('Tab changed:', this.textContent);
+    });
+});
 
+// File upload
+document.querySelector('.btn').addEventListener('click', function() {
+    console.log('File selection triggered');
+    // Add your file upload logic here
+});
+
+// Tool buttons
+document.querySelectorAll('.tool-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        console.log('Tool button clicked:', this.textContent);
+        // Add your tool functionality here
+    });
+});
 // Initialize with home page active and set up event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // console.log('DOM loaded, setting up event listeners');
@@ -78,11 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // console.log('SVG Practice link clicked');
         showPage('svg-practice-1');
     });
-    document.getElementById('nav-svg-practice-2').addEventListener('click', function(e) {
-        e.preventDefault();
-        // console.log('SVG Practice link clicked');
-        showPage('svg-practice-2');
-    });
+    // document.getElementById('nav-svg-practice-2').addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     // console.log('SVG Practice link clicked');
+    //     showPage('svg-practice-2');
+    // });
     document.getElementById('nav-d3-practice').addEventListener('click', function(e) {
         e.preventDefault();
         // console.log('D3 Practice link clicked');
