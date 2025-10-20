@@ -8,7 +8,7 @@ const chartConfigs = {
         csvFile: './data/tv_2025_available_screen_tech.csv',
         labelKey: 'Screen_Tech',
         valueKey: 'OCCURRENCE_COUNT',
-        defaultType: 'bar',
+        defaultType: 'pie',
         allowedTypes: ['bar', 'pie'],
         // Custom axis labels
         xAxisLabel: 'Screen Technology Type',
@@ -38,22 +38,31 @@ const chartConfigs = {
         // Axis labels are already set in histogram.js and scatterplot.js
     },
     chart4: {
-        title: 'Energy Consumption by Brands',
-        csvFile: null,
-        labelKey: 'Brand',
-        valueKey: 'Energy_Consumption',
+        title: 'TV Energy Consumption by Brands',
+        csvFile: './data/tv_2025_energy_consumption_brands.csv',
+        labelKey: 'Brand_Reg',
+        valueKey: 'Median(Labelled energy consumption (kWh/year))',
         defaultType: 'bar',
-        allowedTypes: ['bar', 'horizontal-bar']
+        allowedTypes: ['bar', 'horizontal-bar'],
+        xAxisLabel: 'Brand',
+        yAxisLabel: 'Median Energy Consumption (kWh/year)',
+        // Additional data for filtering
+        filterKey: 'screensize_group',
+        defaultFilter: 'Small (<=45 inch)',
+        filterOptions: ['Small (<=45 inch)', 'Medium (46-55 inch)', 'Large (56-70 inch)', 'XL (>70 inch)']
     },
     chart5: {
         title: 'Energy Consumption per Inch by Brands',
-        csvFile: null,
-        labelKey: 'Brand',
-        valueKey: 'Energy_Per_Inch',
+        csvFile: './data/tv_2025_energy_consumption_per_inch_brands_by_model_counts.csv',
+        labelKey: 'Brand_Reg',
+        valueKey: 'Median(energy_per_inch)',
         defaultType: 'bar',
-        allowedTypes: ['bar', 'horizontal-bar']
+        allowedTypes: ['bar', 'horizontal-bar'],
+        xAxisLabel: 'Brand',
+        yAxisLabel: 'Energy per Inch (kWh/year/inch)'
     }
 };
+
 
 // Track current state for each chart
 const chartStates = {
@@ -192,6 +201,46 @@ function addSortControls(chartId, containerId) {
     sortContainer.appendChild(sortLabel);
     sortContainer.appendChild(tabsContainer);
     container.appendChild(sortContainer);
+}
+
+/**
+ * Add filter controls for screen sizes (Chart 4)
+ */
+function addScreenSizeFilterControls(chartId, containerId, filterOptions, defaultFilter) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    const filterContainer = document.createElement('div');
+    filterContainer.style.display = 'flex';
+    filterContainer.style.gap = '5px';
+    filterContainer.style.marginTop = '10px';
+    filterContainer.style.alignItems = 'center';
+    
+    const filterLabel = document.createElement('span');
+    filterLabel.textContent = 'Screen Size: ';
+    filterLabel.style.fontSize = 'var(--font-size-xs)';
+    
+    const tabsContainer = document.createElement('div');
+    tabsContainer.className = 'chart-tabs';
+    
+    filterOptions.forEach(size => {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn filter-btn' + (size === defaultFilter ? ' active' : '');
+        btn.dataset.chartId = chartId;
+        btn.dataset.filter = size;
+        // Shorter labels for buttons
+        const shortLabel = size.replace(' (<=45 inch)', '')
+                              .replace(' (46-55 inch)', '')
+                              .replace(' (56-70 inch)', '')
+                              .replace(' (>70 inch)', '');
+        btn.textContent = shortLabel;
+        btn.onclick = () => updateFilter(chartId, size);
+        tabsContainer.appendChild(btn);
+    });
+    
+    filterContainer.appendChild(filterLabel);
+    filterContainer.appendChild(tabsContainer);
+    container.appendChild(filterContainer);
 }
 
 /**
@@ -392,6 +441,30 @@ async function initChart(chartId) {
                 if (config.defaultType === 'histogram') {
                     addBinControls(chartId, `bin-controls-${chartId}`);
                 }
+            }
+        } else if (config.filterKey) {
+            // For charts with filtering (like chart4), load raw data
+            const rawData = await dataLoader.loadCSV(config.csvFile, config.typeConversions || {});
+            const transformedData = rawData.map(row => ({
+                label: row[config.labelKey],
+                value: parseFloat(row[config.valueKey]) || 0,
+                [config.filterKey]: row[config.filterKey] // Preserve filter field
+            }));
+            
+            console.log(`Chart4 transformed data:`, transformedData);
+            
+            dataLoader.createChart(chartId, transformedData, config.defaultType, {
+                xAxisLabel: config.xAxisLabel,
+                yAxisLabel: config.yAxisLabel,
+                filterKey: config.filterKey,
+                filterValue: config.defaultFilter,
+                labelKey: 'label',
+                valueKey: 'value'
+            });
+            
+            // Add filter controls for screen sizes
+            if (config.filterOptions) {
+                addScreenSizeFilterControls(chartId, `filter-controls-${chartId}`, config.filterOptions, config.defaultFilter);
             }
         } else {
             // For bar/pie charts, load and transform data

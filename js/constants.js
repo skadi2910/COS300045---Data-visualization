@@ -10,7 +10,20 @@ export const SCREEN_TECH_COLORS = {
     'Plasma': '#fb923c',
     'CRT': '#f87171'
 };
-
+export const BRAND_COLORS = {
+    'SAMSUNG': '#3b82f6',
+    'LG': '#ef4444',
+    'SONY': '#8b5cf6',
+    'KOGAN': '#10b981',
+    'HISENSE': '#f59e0b',
+    'TCL': '#ec4899',
+    'PHILIPS': '#06b6d4',
+    'JVC': '#84cc16',
+    'EKO': '#f97316',
+    'PANASONIC': '#6366f1',
+    'TOSHIBA': '#14b8a6',
+    'SHARP': '#a855f7'
+};
 export const CHART_CONFIG = {
     margin: { top: 40, right: 40, bottom: 60, left: 60 },
     colors: {

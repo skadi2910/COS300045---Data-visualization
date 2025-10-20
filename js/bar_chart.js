@@ -1,8 +1,9 @@
-import { SCREEN_TECH_COLORS, CHART_CONFIG, SORT_ORDER } from './constants.js';
+import { SCREEN_TECH_COLORS, BRAND_COLORS, CHART_CONFIG, SORT_ORDER } from './constants.js';
 
 export class BarChart {
     constructor(containerId, data, options = {}) {
         this.containerId = containerId;
+        this.rawData = data; // Store raw data for filtering
         this.data = data;
         this.options = {
             sortOrder: SORT_ORDER.NONE,
@@ -12,6 +13,8 @@ export class BarChart {
             labelKey: options.labelKey || 'label',
             xAxisLabel: options.xAxisLabel,
             yAxisLabel: options.yAxisLabel,
+            filterKey: options.filterKey,
+            filterValue: options.filterValue || 'All',
             ...options
         };
         console.log(`BarChart constructor for ${containerId}:`, this.options);
@@ -19,13 +22,24 @@ export class BarChart {
         this.chart = null;
     }
 
-    sortData(order) {
-        if (order === SORT_ORDER.ASCENDING) {
-            return [...this.data].sort((a, b) => a[this.options.valueKey] - b[this.options.valueKey]);
-        } else if (order === SORT_ORDER.DESCENDING) {
-            return [...this.data].sort((a, b) => b[this.options.valueKey] - a[this.options.valueKey]);
+    get filteredData() {
+        if (!this.options.filterKey || !this.options.filterValue) {
+            return this.data;
         }
-        return this.data;
+        console.log(`Filtering by ${this.options.filterKey} = ${this.options.filterValue}`);
+        const filtered = this.data.filter(d => d[this.options.filterKey] === this.options.filterValue);
+        console.log(`Filtered data:`, filtered);
+        return filtered;
+    }
+
+    sortData(order) {
+        const dataToSort = this.filteredData;
+        if (order === SORT_ORDER.ASCENDING) {
+            return [...dataToSort].sort((a, b) => a[this.options.valueKey] - b[this.options.valueKey]);
+        } else if (order === SORT_ORDER.DESCENDING) {
+            return [...dataToSort].sort((a, b) => b[this.options.valueKey] - a[this.options.valueKey]);
+        }
+        return dataToSort;
     }
 
     draw() {
@@ -33,6 +47,7 @@ export class BarChart {
         container.html(''); // Clear previous chart
 
         const sortedData = this.sortData(this.options.sortOrder);
+        const displayData = this.filteredData;
         
         const margin = CHART_CONFIG.margin;
         const width = this.options.width - margin.left - margin.right;
@@ -84,7 +99,11 @@ export class BarChart {
             .attr('width', xScale.bandwidth())
             .attr('y', height)
             .attr('height', 0)
-            .attr('fill', d => SCREEN_TECH_COLORS[d[this.options.labelKey]] || '#ccc')
+            .attr('fill', d => {
+                // Check if we should use brand colors or screen tech colors
+                const colorMap = BRAND_COLORS[d[this.options.labelKey]] ? BRAND_COLORS : SCREEN_TECH_COLORS;
+                return colorMap[d[this.options.labelKey]] || '#666';
+            })
             .attr('stroke', CHART_CONFIG.colors.primary)
             .attr('stroke-width', 2)
             .transition()
@@ -119,7 +138,10 @@ export class BarChart {
         legendItems.append('rect')
             .attr('width', 14)
             .attr('height', 14)
-            .attr('fill', d => SCREEN_TECH_COLORS[d[this.options.labelKey]] || '#ccc')
+            .attr('fill', d => {
+                const colorMap = BRAND_COLORS[d[this.options.labelKey]] ? BRAND_COLORS : SCREEN_TECH_COLORS;
+                return colorMap[d[this.options.labelKey]] || '#666';
+            })
             .attr('stroke', CHART_CONFIG.colors.primary)
             .attr('stroke-width', 1);
 
@@ -176,6 +198,11 @@ export class BarChart {
 
     update(sortOrder) {
         this.options.sortOrder = sortOrder;
+        this.draw();
+    }
+
+    updateFilter(filterValue) {
+        this.options.filterValue = filterValue;
         this.draw();
     }
 }
